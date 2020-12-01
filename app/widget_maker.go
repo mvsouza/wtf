@@ -6,6 +6,7 @@ import (
 	"github.com/wtfutil/wtf/modules/azuredevops"
 	"github.com/wtfutil/wtf/modules/bamboohr"
 	"github.com/wtfutil/wtf/modules/bargraph"
+	"github.com/wtfutil/wtf/modules/bitbucket"
 	"github.com/wtfutil/wtf/modules/buildkite"
 	cdsfavorites "github.com/wtfutil/wtf/modules/cds/favorites"
 	cdsqueue "github.com/wtfutil/wtf/modules/cds/queue"
@@ -112,6 +113,9 @@ func MakeWidget(
 	case "bargraph":
 		settings := bargraph.NewSettingsFromYAML(moduleName, moduleConfig, config)
 		widget = bargraph.NewWidget(app, settings)
+	case "bitbucket":
+		settings := bitbucket.NewSettingsFromYAML(moduleName, moduleConfig, config)
+		widget = bitbucket.NewWidget(app, pages, settings)
 	case "bittrex":
 		settings := bittrex.NewSettingsFromYAML(moduleName, moduleConfig, config)
 		widget = bittrex.NewWidget(app, settings)
